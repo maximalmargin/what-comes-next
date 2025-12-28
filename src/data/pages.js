@@ -6,14 +6,14 @@ export const pages = [
     type: 'title',
     background: colors.cloud,
     title: 'What Comes Next?',
-    subtitle: 'Tap to find out!',
+    subtitle: 'Tiny Transformers Book 1',
   },
 
   // Page 1: Same thing repeats (simplest pattern)
   {
     type: 'pattern',
     background: colors.cloud,
-    prompt: 'What comes next?',
+    prompt: 'Same, same...',
     pattern: [
       { shape: 'circle', color: colors.ocean },
       { shape: 'circle', color: colors.ocean },
@@ -21,20 +21,7 @@ export const pages = [
     answer: { shape: 'circle', color: colors.ocean },
   },
 
-  // Page 2: Things take turns (alternation)
-  {
-    type: 'pattern',
-    background: '#FFF0F5',
-    prompt: 'Taking turns!',
-    pattern: [
-      { shape: 'heart', color: colors.coral },
-      { shape: 'star', color: colors.sun },
-      { shape: 'heart', color: colors.coral },
-    ],
-    answer: { shape: 'star', color: colors.sun },
-  },
-
-  // Page 3: Things grow (progression)
+  // Page 2: Things grow (progression)
   {
     type: 'size',
     background: '#F0FFF0',
@@ -46,18 +33,29 @@ export const pages = [
     answer: { shape: 'flower', color: colors.pink, size: 150 },
   },
 
-  // Page 4: Day and night cycle
+  // Page 3: Day and night take turns (alternation)
   {
     type: 'pattern',
     background: colors.night,
     textColor: colors.cloud,
-    prompt: 'Day... night... day...',
+    prompt: 'Day... night...',
     pattern: [
       { shape: 'sun', color: colors.sun },
       { shape: 'moon', color: colors.cloud },
-      { shape: 'sun', color: colors.sun },
     ],
-    answer: { shape: 'moon', color: colors.cloud },
+    answer: { shape: 'sun', color: colors.sun },
+  },
+
+  // Page 4: Colors take turns too!
+  {
+    type: 'pattern',
+    background: '#FFF0F5',
+    prompt: 'Red, yellow...',
+    pattern: [
+      { shape: 'heart', color: colors.coral },
+      { shape: 'heart', color: colors.sun },
+    ],
+    answer: { shape: 'heart', color: colors.coral },
   },
 
   // Page 5: Story completion - cat on mat
@@ -78,10 +76,9 @@ export const pages = [
     message: 'just like computers do!',
     shapes: [
       { shape: 'circle', color: colors.ocean },
-      { shape: 'heart', color: colors.coral },
       { shape: 'flower', color: colors.pink },
       { shape: 'sun', color: colors.sun },
-      { shape: 'moon', color: colors.night },
+      { shape: 'heart', color: colors.coral },
     ],
   },
 ]

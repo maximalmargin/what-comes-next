@@ -8,6 +8,12 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState(0)
   const [direction, setDirection] = useState(0)
 
+  // Check for print mode via URL params
+  const urlParams = new URLSearchParams(window.location.search)
+  const printMode = urlParams.get('print') === 'true'
+  const printPage = parseInt(urlParams.get('page') || '0')
+  const printRevealed = urlParams.get('revealed') === 'true'
+
   const goToNext = useCallback(() => {
     if (currentPage < pages.length - 1) {
       setDirection(1)
@@ -24,6 +30,7 @@ export default function App() {
 
   // Keyboard navigation
   useEffect(() => {
+    if (printMode) return
     const handleKeyDown = (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         goToNext()
@@ -34,7 +41,7 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [goToNext, goToPrev])
+  }, [goToNext, goToPrev, printMode])
 
   // Touch/swipe handling
   const [touchStart, setTouchStart] = useState(null)
@@ -58,6 +65,20 @@ export default function App() {
     }
 
     setTouchStart(null)
+  }
+
+  // Print mode: render single page without animations
+  if (printMode) {
+    return (
+      <div className="h-screen w-screen overflow-hidden">
+        <Page
+          data={pages[printPage]}
+          isActive={true}
+          printMode={true}
+          forceRevealed={printRevealed}
+        />
+      </div>
+    )
   }
 
   const variants = {
