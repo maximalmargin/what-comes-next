@@ -268,7 +268,7 @@ export default function Page({ data, isActive, printMode = false, forceRevealed 
   }
 
   if (data.type === 'scene') {
-    const sceneSize = printMode ? 700 : (data.answer.size || 260)
+    const sceneSize = printMode ? 1000 : (data.answer.size || 260)
 
     if (printMode) {
       // Split layout for print
@@ -359,7 +359,7 @@ export default function Page({ data, isActive, printMode = false, forceRevealed 
   }
 
   if (data.type === 'finale') {
-    const iconSize = printMode ? 240 : 90
+    const iconSize = printMode ? 450 : 90
 
     if (printMode) {
       // Split layout for finale

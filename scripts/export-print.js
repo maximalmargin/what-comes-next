@@ -63,7 +63,7 @@ async function exportPages() {
     const height = isCover ? COVER_HEIGHT : CONTENT_HEIGHT;
 
     const page = await browser.newPage();
-    await page.setViewport({ width, height, deviceScaleFactor: 1 });
+    await page.setViewport({ width, height, deviceScaleFactor: 2 });
 
     // Use URL params for print mode
     const url = `${serverUrl}?print=true&page=${appPageIndex}&revealed=${revealed}`;

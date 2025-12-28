@@ -10,6 +10,15 @@
   padding: 0;
 }
 
+*:focus {
+  outline: none;
+}
+
+button:focus, div:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 html, body, #root {
   width: 100%;
   height: 100%;
