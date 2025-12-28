@@ -131,7 +131,7 @@ export default function Page({ data, isActive, printMode = false, forceRevealed 
           {shapes.moon(colors.night, decorSize * 0.5)}
         </motion.div>
         <motion.div
-          style={{ position: 'absolute', top: '35%', right: '5%' }}
+          style={{ position: 'absolute', top: '30%', right: '2%' }}
           initial={{ opacity: 0, x: 20 }}
           animate={isActive ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.7 }}
